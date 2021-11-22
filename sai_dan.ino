@@ -1,3 +1,7 @@
+#include <DHT_U.h>
+#include <DHT.h>
+
+#include <MQUnifiedsensor.h>
 #include "write_serial.h"
 
 void setup() {

@@ -1,5 +1,6 @@
 {
     "sketch": "sai_dan.ino",
     "port": "/dev/ttyACM0",
-    "board": "arduino:avr:uno"
+    "board": "arduino:avr:uno",
+    "output": "./build"
 }
