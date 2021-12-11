@@ -2,7 +2,10 @@
 #include <DHT.h>
 #include "write_serial.h"
 
-DHT dht(2, DHT11);
+#define DHT_PIN 2
+#define MQ_PIN 0
+
+DHT dht(DHT_PIN, DHT11);
 
 int MQValue;
 int suhu, lembab;
@@ -15,15 +18,12 @@ void setup() {
 }
 
 void loop() {
-  // MQValue = analogRead(0); // read analog input pin 0
-  // suhu = dht.readTemperature();
-  // lembab = dht.readHumidity();
+  char s[100] = {0};
+  MQValue = analogRead(MQ_PIN); // read analog input pin 0
+  suhu = dht.readTemperature();
+  lembab = dht.readHumidity();
 
-  // Serial.print(MQValue); // prints the value read
-  // Serial.print(" ");
-  // Serial.print(suhu);
-  // Serial.print(" ");
-  // Serial.println(lembab);
-  // delay(1000);
-  write_serial();
+  sprintf(s, "%d %d %d", MQValue, suhu, lembab);
+  Serial.println(s);
+  delay(1000);
 }
