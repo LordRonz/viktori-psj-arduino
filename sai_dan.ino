@@ -1,6 +1,5 @@
 #include <DHT_U.h>
 #include <DHT.h>
-#include "write_serial.h"
 
 #define DHT_PIN 2
 #define MQ_PIN 0
@@ -23,7 +22,7 @@ void loop() {
   suhu = dht.readTemperature();
   lembab = dht.readHumidity();
 
-  sprintf(s, "%d %d %d", MQValue, suhu, lembab);
+  sprintf(s, "{%d %d %d}", MQValue, suhu, lembab);
   Serial.println(s);
   delay(1000);
 }
